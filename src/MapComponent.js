@@ -12,7 +12,11 @@ const MapComponent = (props) => {
     setIdCounter((prev) => prev + 1)
     setInput('')
   }
-  
+
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  }
+
   const handleDelete = (e) => {
     props.delete(e)
   }
@@ -23,7 +27,7 @@ const MapComponent = (props) => {
         Todo:
       </h1>
       <form onSubmit={submitTodo}>
-        <input type="text" onChange={(e) => setInput(e.target.value)} value={input} />
+        <input type="text" onChange={handleChange} value={input} />
         <button type="submit">Submit</button>
       </form>
       {
